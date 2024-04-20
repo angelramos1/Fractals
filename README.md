@@ -15,7 +15,7 @@ Don't forget that you must also fill out an evaluation form in Moodle to conside
 
 ## Grading
 
-Partner 1: (STUDENT NUMBER HERE) (STUDENT NAME HERE) (STUDENT EMAIL HERE)
+Partner 1: (802-23-2148) (Oscar A. Santana Colon) (oscar.santana2@upr.edu)
 Partner 2: (STUDENT NUMBER HERE) (STUDENT NAME HERE) (STUDENT EMAIL HERE)
 
 Any project that doesn't compile will receive a 0.
