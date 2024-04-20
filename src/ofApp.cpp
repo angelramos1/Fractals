@@ -8,6 +8,9 @@ void ofApp::setup() {
     cam.setDistance(200);
     text.load("Fonts/fractalFont.otf",40);
     dataText.load("Fonts/fractalFont.otf",15);
+
+    //LEVELS VECTOR INITIALIZING
+    levels = vector<int>{3, 10, 7, 50, 5, 3};
 }
 
 //--------------------------------------------------------------
@@ -26,29 +29,29 @@ void ofApp::draw() {
         // Circle
         float r = 0.31 * ofGetHeight();
         angle += 0.01;
-        drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, r, 3);
+        drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, r, levels[0]);
     } break;
     case '2': {
         // Tree
         float length = 0.31 * ofGetHeight();
-        drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, 10, length, 1.5 * PI);
+        drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, levels[1], length, 1.5 * PI);
     } break;
     case '3': {
         // Sierpinski Triangle
         float size = 0.88 * ofGetHeight();
-        drawMode3((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, 7);
+        drawMode3((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, levels[2]);
     } break;
     case '4': {
         // Barnsley Fern
-        drawMode4(0, 0, 10 * 1000);
+        drawMode4(0, 0, levels[3] *1000);
     }    break;
     case '5': {
         // Koch SnowFlake
-        SnowFlake().draw();
+        SnowFlake().draw(levels[4]);
     }   break;
     case '6': {
         //3d Fractal
-        Fractal3D(&cam).draw(map<string, float> {{"n", 3}, {"scale", 100}});
+        Fractal3D(&cam).draw(map<string, float> {{"n", levels[5]}, {"scale", 100}});
     }   break;
     }
 }
@@ -129,6 +132,38 @@ void ofApp::drawMode4(float x, float y, float n) {
 void ofApp::keyPressed(int key) {
     if (key >= '1' && key <= '6'){
         mode = key;
+    }
+
+    //Changes the depth level depending on the mode
+    if(key == OF_KEY_LEFT){
+        if(mode == '1' && levels[0]>1){
+            levels[0]--;
+        } else if(mode == '2' && levels[1]>1){
+            levels[1]--;
+        } else if(mode == '3' && levels[2]>1){
+            levels[2]--;
+        } else if(mode == '4' && levels[3]>5){
+            levels[3]--;
+        } else if(mode == '5' && levels[4]>1){
+            levels[4]--;
+        } else if(mode == '6' && levels[5]>0){
+            levels[5]--;
+        }
+    }
+    if(key == OF_KEY_RIGHT){
+        if(mode == '1' && levels[0]<5){
+            levels[0]++;
+        } else if(mode == '2' && levels[1]<15){
+            levels[1]++;
+        } else if(mode == '3' && levels[2]<10){
+            levels[2]++;
+        } else if(mode == '4' && levels[3]<50){
+            levels[3]++;
+        } else if(mode == '5' && levels[4]<6){
+            levels[4]++;
+        } else if(mode == '6' && levels[5]<9){
+            levels[5]++;
+        }
     }
 }
 

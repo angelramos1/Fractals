@@ -1,6 +1,7 @@
 #pragma once
 
 #include <cmath>
+#include <vector> // So we can use a vector
 
 #include "ofMain.h"
 
@@ -8,6 +9,9 @@ class ofApp : public ofBaseApp {
   private:
     char mode = '1';
     float angle = 0;
+    //Vector for the level of depth. It'll have 6 positions from 0 to 5, and each one will correspond to a mode.
+    //Mode 1 is levels[0], Mode 2 is levels[1], etc. :)
+    vector<int> levels;
 
   public:
     void setup();
