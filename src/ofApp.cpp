@@ -21,36 +21,41 @@ void ofApp::update() {
 void ofApp::draw() {
     ofBackgroundGradient(ofColor(65), ofColor(0), OF_GRADIENT_BAR);
 
-    text.drawString("(Insert Fractal Name Here)",25,60);
 
     ofNoFill();
     switch (mode) {
     case '1': {
         // Circle
+        text.drawString("Circle",25,60);
         float r = 0.31 * ofGetHeight();
         angle += 0.01;
         drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, r, levels[0]);
     } break;
     case '2': {
         // Tree
+        text.drawString("Tree",25,60);
         float length = 0.31 * ofGetHeight();
         drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, levels[1], length, 1.5 * PI);
     } break;
     case '3': {
         // Sierpinski Triangle
+        text.drawString("Sierpinski Triangle",25,60);
         float size = 0.88 * ofGetHeight();
         drawMode3((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, levels[2]);
     } break;
     case '4': {
         // Barnsley Fern
+        text.drawString("Barnsley Fern",25,60);
         drawMode4(0, 0, levels[3] *1000);
     }    break;
     case '5': {
         // Koch SnowFlake
+        text.drawString("Koch SnowFlake",25,60);
         SnowFlake().draw(levels[4]);
     }   break;
     case '6': {
         //3d Fractal
+        text.drawString("3d Fractal",25,60);
         Fractal3D(&cam).draw(map<string, float> {{"n", levels[5]}, {"scale", 100}});
     }   break;
     }
@@ -69,11 +74,17 @@ void ofApp::drawMode1(float x, float y, float r, int n) {
     float angle5 = 4 * PI / 3 + angle;
     float angle6 = 5 * PI / 3 + angle;
     drawMode1(x + r * cos(angle1), y + r * sin(angle1), delta, n - 1);
+    ofSetColor(ofColor::green);
     drawMode1(x + r * cos(angle2), y + r * sin(angle2), delta, n - 1);
+    ofSetColor(ofColor::blue);
     drawMode1(x + r * cos(angle3), y + r * sin(angle3), delta, n - 1);
+    ofSetColor(ofColor::red);
     drawMode1(x + r * cos(angle4), y + r * sin(angle4), delta, n - 1);
+    ofSetColor(ofColor::yellow);
     drawMode1(x + r * cos(angle5), y + r * sin(angle5), delta, n - 1);
+    ofSetColor(ofColor::orange);
     drawMode1(x + r * cos(angle6), y + r * sin(angle6), delta, n - 1);
+    ofSetColor(ofColor::white);
 }
 
 void ofApp::drawMode2(float x, float y, int n, float length, float rad) {
@@ -83,9 +94,11 @@ void ofApp::drawMode2(float x, float y, int n, float length, float rad) {
     float y2 = y + length * sin(rad);
 
     ofDrawLine(x, y, x2, y2);
-
+    ofSetColor(ofColor::blue);
     drawMode2(x2, y2, n - 1, 0.7 * length, rad + 0.2 * PI);
+    ofSetColor(ofColor::red);
     drawMode2(x2, y2, n - 1, 0.7 * length, rad - 0.2 * PI);
+    ofSetColor(ofColor::white);
 }
 
 void ofApp::drawMode3(float x, float y, float size, int n) {
@@ -98,9 +111,11 @@ void ofApp::drawMode3(float x, float y, float size, int n) {
     ofPoint c(x + size / 2, y + ((sqrt(3) * size) / 2));
 
     ofDrawTriangle(a, b, c);
-
+    ofSetColor(ofColor::yellow);
     drawMode3(x, y, size / 2, n - 1);
+    ofSetColor(ofColor::purple);
     drawMode3((a.x + b.x) / 2, (a.y + b.y) / 2, size / 2, n - 1);
+    ofSetColor(ofColor::white);
 }
 
 void ofApp::drawMode4(float x, float y, float n) {
@@ -110,11 +125,17 @@ void ofApp::drawMode4(float x, float y, float n) {
 
     float px = ofMap(x, -2.1820, 2.6558, 0, ofGetWidth());
     float py = ofMap(y, 0, 9.9983, ofGetHeight(), 0);
-
+    
     ofFill();
-    ofSetColor(ofColor::green);
+    ofSetColor(ofColor::red);
+
+    ofDrawCircle(px, py, 0.7);
+    ofSetColor(ofColor::blue);
+
     ofDrawCircle(px, py, 0.6);
     ofSetColor(ofColor::white);
+
+    
 
     if (r < 0.01)
         drawMode4(0, 0.16 * y, n - 1);

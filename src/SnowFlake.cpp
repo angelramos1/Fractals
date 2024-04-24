@@ -16,8 +16,11 @@ void SnowFlake::draw(int n) {
     glm::vec2 p3 = {ofGetWidth() / 2, (ofGetHeight() + size * sin(PI / 3)) / 2 + 0.15 * size};
 
     draw(n, new SnowFlake(p1, p2));
+    ofSetColor(ofColor::blue);
     draw(n, new SnowFlake(p2, p3));
+    ofSetColor(ofColor::red);
     draw(n, new SnowFlake(p3, p1));
+    ofSetColor(ofColor::white);
 }
 void SnowFlake::draw(int n, SnowFlake *flake) {
     if (n < 2)
