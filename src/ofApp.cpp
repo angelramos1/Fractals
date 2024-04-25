@@ -26,38 +26,52 @@ void ofApp::draw() {
     switch (mode) {
     case '1': {
         // Circle
-        text.drawString("Circle",25,60);
+        text.drawString("Circle Fractal",25,60);
         float r = 0.31 * ofGetHeight();
         angle += 0.01;
         drawMode1(ofGetWidth() / 2, ofGetHeight() / 2, r, levels[0]);
     } break;
     case '2': {
         // Tree
-        text.drawString("Tree",25,60);
+        text.drawString("Tree Fractal",25,60);
         float length = 0.31 * ofGetHeight();
         drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, levels[1], length, 1.5 * PI);
     } break;
     case '3': {
         // Sierpinski Triangle
-        text.drawString("Sierpinski Triangle",25,60);
+        text.drawString("Sierpinski Triangle Fractal",25,60);
         float size = 0.88 * ofGetHeight();
         drawMode3((ofGetWidth() - size) / 2, ofGetHeight() / 2 - 0.4 * size, size, levels[2]);
     } break;
     case '4': {
         // Barnsley Fern
-        text.drawString("Barnsley Fern",25,60);
+        text.drawString("Barnsley Fern Fractal",25,60);
         drawMode4(0, 0, levels[3] *1000);
     }    break;
     case '5': {
         // Koch SnowFlake
-        text.drawString("Koch SnowFlake",25,60);
+        text.drawString("Koch SnowFlake Fractal",25,60);
         SnowFlake().draw(levels[4]);
     }   break;
     case '6': {
         //3d Fractal
-        text.drawString("3d Fractal",25,60);
+        text.drawString("3d Fractal Fractal",25,60);
         Fractal3D(&cam).draw(map<string, float> {{"n", levels[5]}, {"scale", 100}});
     }   break;
+    }
+
+    if (showDebugInfo) {
+        std::vector<std::string> modeNames = {"Circle", "Tree", "Sierpinski Triangle", "Barnsley Fern", "Koch SnowFlake", "3D Fractal"};
+        dataText.load("Fonts/fractalFont.otf", 20);  
+
+        int initialY = 140;  // Starting Y-position
+        int spacing = 30;  // Space between list items
+
+        // Display list of modes with their respective levels
+        for (size_t i = 0; i < modeNames.size(); ++i) {
+            std::string info = modeNames[i] + " level: " + std::to_string(levels[i]);
+            dataText.drawString(info, 25, initialY + (i * spacing));  // Increase spacing
+        }
     }
 }
 
@@ -153,6 +167,10 @@ void ofApp::drawMode4(float x, float y, float n) {
 void ofApp::keyPressed(int key) {
     if (key >= '1' && key <= '6'){
         mode = key;
+    }
+
+    if (key == 'd' || key == 'D') {
+        showDebugInfo = !showDebugInfo;  // Toggle debug information
     }
 
     //Changes the depth level depending on the mode

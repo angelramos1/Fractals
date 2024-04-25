@@ -12,6 +12,7 @@ class ofApp : public ofBaseApp {
     //Vector for the level of depth. It'll have 6 positions from 0 to 5, and each one will correspond to a mode.
     //Mode 1 is levels[0], Mode 2 is levels[1], etc. :)
     vector<int> levels;
+    bool showDebugInfo = false;
 
   public:
     void setup();
