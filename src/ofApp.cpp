@@ -9,7 +9,7 @@ void ofApp::setup() {
     text.load("Fonts/fractalFont.otf",40);
     dataText.load("Fonts/fractalFont.otf",15);
 
-    //LEVELS VECTOR INITIALIZING
+    //Initialize the vector containing the "Levels" for each Fractal
     levels = vector<int>{3, 10, 7, 50, 5, 3};
 }
 
@@ -35,6 +35,12 @@ void ofApp::draw() {
         // Tree
         text.drawString("Tree Fractal",25,60);
         float length = 0.31 * ofGetHeight();
+
+        //Bottom-left tree
+        drawMode2(0.8 * length, ofGetHeight() - 20, levels[1], 0.4 * length, 1.5 * PI);
+        //Bottom-right tree
+        drawMode2(ofGetWidth()-(0.8 * length), ofGetHeight() - 20, levels[1], 0.4 * length, 1.5 * PI);
+        //Normal tree
         drawMode2(ofGetWidth() / 2, ofGetHeight() - 20, levels[1], length, 1.5 * PI);
     } break;
     case '3': {
@@ -126,6 +132,8 @@ void ofApp::drawMode3(float x, float y, float size, int n) {
 
     ofDrawTriangle(a, b, c);
     ofSetColor(ofColor::yellow);
+    drawMode3((a.x + c.x) / 2, (a.y + c.y) / 2, size / 2, n - 1);
+    ofSetColor(ofColor::green);
     drawMode3(x, y, size / 2, n - 1);
     ofSetColor(ofColor::purple);
     drawMode3((a.x + b.x) / 2, (a.y + b.y) / 2, size / 2, n - 1);
@@ -170,7 +178,7 @@ void ofApp::keyPressed(int key) {
     }
 
     if (key == 'd' || key == 'D') {
-        showDebugInfo = !showDebugInfo;  // Toggle debug information
+        showDebugInfo = !showDebugInfo;  //Toggle debug information
     }
 
     //Changes the depth level depending on the mode
