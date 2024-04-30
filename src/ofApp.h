@@ -7,6 +7,7 @@
 #include "FractalMode2.h"
 #include "FractalMode3.h"
 #include "FractalMode4.h"
+#include "FractalMode5.h"
 #include "ofMain.h"
 
 class ofApp : public ofBaseApp {
@@ -18,6 +19,9 @@ class ofApp : public ofBaseApp {
     vector<int> levels;
     bool showDebugInfo = false;
     std::vector<AbstractFractal*> fractals;  // Vector to hold different fractal modes
+    bool playingAnimation = false;
+    bool maxReached = false;
+    int animationCount = 0;
 
   public:
     void setup();
@@ -35,11 +39,6 @@ class ofApp : public ofBaseApp {
     void windowResized(int w, int h);
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
-
-    void drawMode1(float x, float y, float r, int n);
-    void drawMode2(float x, float y, int n, float length, float rad);
-    void drawMode3(float x, float y, float size, int n);
-    void drawMode4(float x, float y, float n);
 
     ofEasyCam cam;
     ofTrueTypeFont text;

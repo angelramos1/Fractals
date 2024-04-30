@@ -4,7 +4,8 @@
 FractalMode1::FractalMode1(const std::string& name, int level) : AbstractFractal(name, level) {}
 
 void FractalMode1::draw() const {
-    drawFractal(ofGetWidth() / 2, ofGetHeight() / 2, 100, this->level);
+    float r = 0.31 * ofGetHeight();
+    drawFractal(ofGetWidth() / 2, ofGetHeight() / 2, r, this->level);
 }
 
 void FractalMode1::drawFractal(float x, float y, float r, int n) const {
