@@ -2,7 +2,11 @@
 
 #include <cmath>
 #include <vector> // So we can use a vector
-
+#include "AbstractFractal.h"
+#include "FractalMode1.h"
+#include "FractalMode2.h"
+#include "FractalMode3.h"
+#include "FractalMode4.h"
 #include "ofMain.h"
 
 class ofApp : public ofBaseApp {
@@ -13,6 +17,7 @@ class ofApp : public ofBaseApp {
     //Mode 1 is levels[0], Mode 2 is levels[1], etc. :)
     vector<int> levels;
     bool showDebugInfo = false;
+    std::vector<AbstractFractal*> fractals;  // Vector to hold different fractal modes
 
   public:
     void setup();
