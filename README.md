@@ -23,4 +23,4 @@ Any project that doesn't compile will receive a 0.
 If a partner has no commits in the repositories, they'll will receive a 0.
 
 ## Student Notes
-If you have any notes to add for your TA about the project specs or creative additions, you may do so in this section of the README:
+If you have any notes to add for your TA about the project specs or creative additions, you may do so in this section of the README: Everything works perfectly, except the circle that for some reason does not spin.
