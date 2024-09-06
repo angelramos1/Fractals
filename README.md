@@ -1,26 +1,73 @@
-# PA3: Fractals
-This repository is part of a Programming Assignment for the Advanced Programming Course. 
-The purpose of this project is to creatively help the student create practical programming skills by implementing changes to the base code that require strong understanding of the concepts discussed in class.
+<h1>Fractals</h1>
 
-## Setup
-1. Clone this project inside your OpenFrameworks enviorement folder "apps/myApps/" directory
-2. Run the command "make" in the terminal or the "Build" Task in VSCode.
-3. To run the project using the included debug configurations you must make sure to change the debugging program attribute for the corresponding configuration according to your OS. The executable will have the same name as this repository, and if on Windows, it 
-will end in ".exe"
+<h2>Description</h2>
+Collaborated on a project focused on generating and manipulating fractal patterns using recursion in C++ with openFrameworks. Implemented various fractal types, including custom-designed fractals, and added interactive features like dynamic recursion depth adjustment and animation controls. Refactored the codebase to follow object-oriented programming principles, creating an abstract class structure to handle different fractal types efficiently. Utilized Git and GitHub for version control, working collaboratively with a partner to manage project branches and maintain a clean codebase.
 
-## Submitting Assignment
-To submit this assignment, create a Release with the branch that holds all the changes you have added. If no Release is made, the last commit to the master branch will be graded.
+<br />
 
-Don't forget that you must also fill out an evaluation form in Moodle to consider the project submitted.
 
-## Grading
+<h2>Languages and Tools</h2>
 
-Partner 1: (802-23-2148) (Oscar A. Santana Colon) (oscar.santana2@upr.edu)
-Partner 2: (841-21-5463) (Angel L. Ramos Rodríguez) (angel.ramos48@upr.edu)
+- <b>C++</b> 
+- <b>VScode</b>
+- <b>openFrameworks</b>
 
-Any project that doesn't compile will receive a 0.
+<h2>Environments Used </h2>
 
-If a partner has no commits in the repositories, they'll will receive a 0.
+- <b>Windows 10</b> 
 
-## Student Notes
-If you have any notes to add for your TA about the project specs or creative additions, you may do so in this section of the README: Everything works perfectly, except the circle that for some reason does not spin.
+<h2>Program walk-through:</h2>
+
+<p align="center">
+Circle Fractal Pt1: <br/>
+<img src="https://imgur.com/6H4sh8V.png" height="80%" width="80%" alt="Circle Fractal Pt1"/>
+<br />
+<br />
+Circle Fractal Pt2:  <br/>
+<img src="https://imgur.com/FSK0LKn.png" height="80%" width="80%" alt="Circle Fractal Pt2"/>
+<br />
+<br />
+Tree Fractal Pt1: <br/>
+<img src="https://imgur.com/b14eTU1.png" height="80%" width="80%" alt="Tree Fractal Pt1"/>
+<br />
+<br />
+Tree Fractal Pt2: <br/>
+<img src="https://imgur.com/ieGlt5L.png" height="80%" width="80%" alt="Tree Fractal Pt2"/>
+<br />
+<br />
+Sierpinski Triangle Fractal Pt1: <br/>
+<img src="https://imgur.com/anr3Iru.png" height="80%" width="80%" alt="Sierpinski Triangle Fractal Pt1"/>
+<br />
+<br />
+Sierpinski Triangle Fractal Pt2: <br/>
+<img src="https://imgur.com/F1ar7Rh.png" height="80%" width="80%" alt="Sierpinski Triangle Fractal Pt2"/>
+<br />
+<br />
+3D Fractal Pt1: <br/>
+<img src="https://imgur.com/BfSjC6X.png" height="80%" width="80%" alt="3D Fractal Pt1"/>
+<br />
+<br />
+3D Fractal Pt2: <br/>
+<img src="https://imgur.com/kEan4rv.png" height="80%" width="80%" alt="3D Fractal Pt2"/>
+<br />
+<br />
+Square Fractal Pt1: <br/>
+<img src="https://imgur.com/RBM7HbH.png" height="80%" width="80%" alt="Square Fractal Pt1"/>
+<br />
+<br />
+Square Fractal Pt2: <br/>
+<img src="https://imgur.com/Tb0ytPG.png" height="80%" width="80%" alt="Square Fractal Pt2"/>
+<br />
+<br />
+
+</p>
+
+<!--
+ ```diff
+- text in red
++ text in green
+! text in orange
+# text in gray
+@@ text in purple (and bold)@@
+```
+--!>
